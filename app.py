@@ -88,7 +88,6 @@ if user_input:
     )
     st.write("Assistant:", response["answer"])
 
-    human_message = None
     for i in range(len(session_hist.messages)-1):
         hist_dict[session_hist.messages[i].content] = session_hist.messages[i+1].content
             
