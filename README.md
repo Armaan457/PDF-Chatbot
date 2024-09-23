@@ -1,5 +1,5 @@
 # PDF Chatbot
-A **Retrieval Augmented Generation (RAG)** powered chatbot that enables users to interact with custom PDF documents using an LLM. Utilises **Groq LPU** for fast inference. Presently trained on a pdf on Mangonels but but easily adaptable for any PDF using the included `gen_emb.ipynb` notebook.
+A **Retrieval Augmented Generation (RAG)** powered chatbot that enables users to interact with custom PDF documents using an LLM. Utilises **Groq LPU** for fast inference and features a message history for easier reference during interactions. Presently trained on a pdf on Mangonels but but easily adaptable for any PDF using the included `gen_emb.ipynb` notebook.
 
 # Technologies used
 **Web Interface**: Streamlit <br>
