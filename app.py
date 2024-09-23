@@ -78,14 +78,18 @@ conversational_rag_chain = RunnableWithMessageHistory(
     output_messages_key="answer"
 )
 
-if "session_hist" not in st.session_state:
-    st.session_state.session_hist = []
 user_input  = st.text_input("What is your question?")
 if user_input:
+    session_hist = get_session_history(session_id)
+    hist_dict = {}
     response = conversational_rag_chain.invoke(
         {"input" : user_input},
         config 
     )
     st.write("Assistant:", response["answer"])
-    st.session_state.session_hist.append({user_input:response["answer"]})
-    st.write("Chat_History:", st.session_state.session_hist)
+
+    human_message = None
+    for i in range(len(session_hist.messages)-1):
+        hist_dict[session_hist.messages[i].content] = session_hist.messages[i+1].content
+            
+    st.write("Chat_History:", hist_dict)
